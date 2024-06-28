@@ -27,6 +27,40 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  padding: 0px 90px;
+}
+
+.nav-link {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: 0;
+  left: 50%;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+  background: white;
 }
 
 #box_txt {
@@ -84,7 +118,7 @@ header {
   background-color: white;
 }
 
-#right_text p{
+#right_text p {
   color: var(--dark-gray);
   padding-top: 25px;
 }
@@ -98,42 +132,40 @@ header {
   margin-bottom: 25vh;
 }
 
-
-#thrd_page #top_part{
+#thrd_page #top_part {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 11%;
   /* margin-top: 10%; */
- 
 }
-#top_part h1{
-  font-family:"Josefin Sans" ;
+#top_part h1 {
+  font-family: "Josefin Sans";
   font-weight: 300;
-  font-size: 5.5vh;
-
+  font-size: 5vh;
+  background: transparent;
 }
-#top_part button{
+#top_part button {
   padding: 4px 30px;
   padding-top: 8px;
   margin-right: 7.5%;
-  font-family:"Josefin Sans" ;
+  font-family: "Josefin Sans";
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 5px;
   background-color: white;
 }
 
-
-
-
-
+#top_part button:hover {
+  background-color: black;
+  color: white;
+}
 
 #imgs_grid {
   padding: 0 11%;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(4, 1fr);
-  
+
   margin-left: 10px;
   margin-top: 30px;
   width: 85%;
@@ -142,15 +174,23 @@ header {
   border-radius: 0;
   font-family: "Josefin Sans";
 }
-.card{
+.card {
   width: 100%;
   margin-right: 50px;
+  position: relative; /* Ensure relative positioning for overlay */
 }
-.card .card-img{
+
+.card .card-img {
   width: 36vh;
   height: 52vh;
   border-radius: 0;
+  transition: opacity 0.3s ease; /* Add transition for opacity */
 }
+
+.card:hover .card-img {
+  opacity: 0.8; /* Reduce opacity on hover */
+}
+
 .card-img-overlay {
   display: flex;
   align-items: flex-end;
@@ -159,73 +199,133 @@ header {
   border: none;
   width: 36vh;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.655), transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px; /* Adjust padding as needed */
+  transition: background-color 0.3s ease; /* Add transition for background-color */
 }
+
+.card:hover .card-img-overlay {
+  background-color: rgba(226, 226, 226, 0.892); /* Darken background on hover */
+}
+
 .card-title {
   width: 100%;
   text-align: start;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  color: white; /* Initial text color */
+  transition: color 0.3s ease; /* Add transition for text color */
 }
 
-#imgs_grid h5{
-  font-weight: 300;
+.card:hover .card-title {
+  color: white; /* Change text color on hover */
 }
 
-#footer_sec{
+
+#footer_sec {
   width: 100%;
   /* height: 20vh; */
   background-color: black;
   color: white;
 }
 
-#footer_sec #first{
+#footer_sec #first {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-
 }
-#first #left{
+#first #left {
   padding: 10px 10px;
   margin-left: 20vh;
   padding-top: 20px;
 }
-#first #left h2{
-  font-family: 'Josefin Sans';
+#first #left h2 {
+  font-family: "Josefin Sans";
   padding-top: 0px;
   font-size: 1.5vw;
-
 }
-#first #icons{
+#icons {
   margin-right: 35vh;
   padding-top: 20px;
 
+  gap: 2px;
 }
 
-#footer_sec #second{
+#icons a {
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+#icons a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: -5px;
+  left: 50%;
+  background: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+#icons a:hover::after {
+  width: 100%;
+  left: 0;
+}
+#footer_sec #second {
   display: flex;
   padding-bottom: 20px;
   justify-content: space-between;
 }
-#footer_sec #second .menu_part{
+#footer_sec #second .menu_part {
   margin-left: 24vh;
-  
-
 }
 
-#second .menu_part ul a{
+#second .menu_part ul a {
   text-decoration: none;
   color: white;
   padding-right: 30px;
   font-weight: 400;
   font-size: 14px;
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
 }
 
-#second #copyright_part footer{
+#second #copyright_part footer {
   margin-right: 37vh;
   font-size: 1vw;
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
   color: var(--very-dark-gray);
+}
 
+.menu_part a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+  position: relative;
+  padding-bottom: 5px;
+}
+.menu_part a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: 0;
+  left: 30%;
+  background: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.menu_part a:hover::after {
+  width: 70%;
+  left: 0;
 }
