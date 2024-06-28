@@ -130,6 +130,7 @@ header {
   flex-direction: column;
   justify-content: center;
   margin-bottom: 25vh;
+  padding-left: 25px;
 }
 
 #thrd_page #top_part {
@@ -222,9 +223,8 @@ header {
 }
 
 .card:hover .card-title {
-  color: white; /* Change text color on hover */
+  color: var(--black); /* Change text color on hover */
 }
-
 
 #footer_sec {
   width: 100%;
